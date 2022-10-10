@@ -100,8 +100,7 @@ if __name__ == '__main__':
     create_table()
     row_counter = 0
     paired_rows = 0
-#C:\Users\Manolo\Desktop\TFG\Leer datos de Reddit\2015      //ToDo
-    with bz2.open('C:/Users/Manolo/Desktop/TFG/reddit/2015/RC_2015-05.bz2', buffering=1000) as f:
+    with bz2.open('C:/Users/Manolo/Desktop/TFG/reddit/2015/RC_2015-05.bz2', 'rb') as f:
         for row in f:
             row_counter += 1
             row = json.loads(row)
@@ -129,3 +128,6 @@ if __name__ == '__main__':
 
             if row_counter % 100000 == 0:
                 print('Total Rows Read: {}, Paired Rows: {}, Time: {}'.format(row_counter, paired_rows, str(datetime.now())))
+
+            if row_counter > 1000:
+                break
