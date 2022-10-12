@@ -28,9 +28,9 @@ for timeframe in timeframes:
     for row in table:
         index+=1
         dictionary = {
-        "tag": index,
-        "patterns": row[2],
-        "responses": row[3],
+        "tag": str(index),
+        "patterns":[ row[2]],
+        "responses": [row[3]],
         "context_set": ""
         }
         intents.append(dictionary)
